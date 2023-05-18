@@ -1,0 +1,84 @@
+<!-- example.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daily Blog</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+    />
+  </head>
+  <style>
+   .content {
+  min-height: calc(100vh - 70px);
+  /* display: flex;
+  flex-direction: column;
+  justify-content: flex-start; */
+  padding: 40px;
+}
+
+.container {
+  display: flex;
+  
+}
+
+.postBox {
+}
+#cont{
+  display: flex;
+  flex-direction: column;
+}
+
+/* Media queries for responsiveness */
+
+@media (max-width: 768px) {
+  .content {
+    padding: 20px;
+  }
+
+  .postBox {
+   
+    width: 100px;
+  }
+}
+
+  </style>
+  <body>
+    <header><%- include('partials/header.ejs') -%></header>
+
+    <div class="content">
+      <div class="container" id="cont">
+        <div class="heading">
+          <h1>Log the daily activities...</h1>
+        </div>
+        <div class="postBox">
+          <!-- <% posts.forEach(function(post) { %>
+  
+          <h1><%= post.title %></h1>
+          <p><%= post.contents %></p>
+  
+          <% }); %> -->
+          <% posts.forEach(function(post) { %>
+            <h1><%= post.title %></h1>
+            <p>
+              <% if (post.contents.length > 100) { %>
+                <%= post.contents.substring(0, 100) + '...' %>
+                <a href="/post/<%= post.title %>">Read More</a>
+              <% } else { %>
+                <%= post.contents %>
+              <% } %>
+            </p>
+          <% }); %>
+          
+        </div>
+      </div>
+
+     
+    </div>
+
+    <footer><%- include('partials/footer.ejs') -%></footer>
+  </body>
+</html>
