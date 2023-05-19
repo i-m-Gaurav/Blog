@@ -6,32 +6,48 @@
     <title>Daily Blog</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <style>
-    .color{
-        background-color: rgb(176, 176, 176);
+    .navbar {
+        background-color: rgb(45, 104, 172);
     }
+
+    /* Custom styles for the hamburger button */
+    .navbar-toggler {
+        border: none;
+        background-color: transparent;
+        color: white;
+        font-size: 1.5rem;
+    }
+    
+    button.navbar-toggler:focus {
+        outline: none;
+    }
+    
 </style>
 <body>
 
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light color">
+        <nav class="navbar navbar-expand-lg navbar-light ">
             <div class="container">
-                <a class="navbar-brand" href="/">Daily Blog</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                <a class="navbar-brand text-white" href="/">Daily Blog</a>
+                <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    <i class="fas fa-bars" style="color:white" ></i>
+
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/">Home</a>
+                    <ul class="navbar-nav ">
+                        <li class="nav-item txtColor">
+                            <a class="nav-link text-white" href="/">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="about">About Us</a>
+                            <a class="nav-link text-white" href="about">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contact">Contact Us</a>
+                            <a class="nav-link text-white" href="contact">Contact Us</a>
                         </li>
                     </ul>
                 </div>
