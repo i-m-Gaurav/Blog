@@ -1,15 +1,46 @@
-<header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+/>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header>
     <%- include('partials/header.ejs') %>
   </header>
 
   <div class="content">
-   
-   
-    <p><%= contact %></p>
-  </div>
+    <div class="post-container container" id = "cont">
 
-  
+      <h1 class="post-title">Contact Us</h1>
+      <div class="post-content">
+        <p>We would love to hear from you! Reach out to us using the contact details below:</p>
+        <ul>
+          <li>Phone: +91-1234567890</li>
+          <li>Phone: +91-2345678901</li>
+          <li>Phone: +91-3456789012</li>
+          <li>Phone: +91-4567890123</li>
+        </ul>
+        <p>Address: 123, Example Street, City, State, Pincode, India</p>
+        <p>Feel free to drop by our office or give us a call. Our team is ready to assist you!</p>
+      </div>
+    
+
+    </div>
+    
+  </div>
 
   <footer>
     <%- include('partials/footer.ejs') %>
   </footer>
+
+</body>
+</html>

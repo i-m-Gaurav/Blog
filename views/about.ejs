@@ -1,14 +1,37 @@
-<header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+/>
+</head>
+<body>
+
+  <header>
     <%- include('partials/header.ejs') %>
   </header>
 
   <div class="content">
-   
-    
-    <p><%= about %></p>
-  </div>
+    <div class="post-container container " id="cont">
 
+      <h1 class="post-title">About Us</h1>
+      <p class="post-content">Welcome to our vibrant community of personal journaling and daily blogging enthusiasts! Our website is a digital sanctuary where you can unleash your creativity, express your thoughts, and capture the essence of your daily adventures.</p>
+      <p class="post-content">Here, you can document your moments of triumph, share your reflections on life, and find inspiration from like-minded individuals. Whether you prefer to pen down your musings in private or showcase your posts to the world, our platform provides the perfect outlet for your daily log.</p>
+      <p class="post-content">Unleash your imagination, unleash your words. Dive into a world of self-expression, where every entry is a brushstroke on the canvas of your life. Embrace the power of storytelling and let your journey unfold, one page at a time.</p>
+
+    </div>
+   
+  </div>
 
   <footer>
     <%- include('partials/footer.ejs') %>
   </footer>
+
+</body>
+</html>

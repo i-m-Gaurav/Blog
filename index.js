@@ -6,6 +6,8 @@ const homeStartingContent = "This is for Home page";
 const aboutContent = "This is for about page";
 const contactContent = "This is for contact page";
 
+
+
 const posts = [];
 
 
@@ -13,6 +15,8 @@ const posts = [];
 const app = express();
 app.use(bodyParser.urlencoded({extended:true}));
 app.set('view engine','ejs');
+
+app.use(express.static("public"));
 
 app.get("/", function(req,res){
     res.render("home",{homepage: homeStartingContent,posts:posts});
@@ -41,6 +45,7 @@ app.post("/compose", function(req,res){
 
     posts.push(post);
     res.redirect("/");
+    
    
 
 })
