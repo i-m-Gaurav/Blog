@@ -12,9 +12,13 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     .container {
+      flex: 1;
       max-width: 800px;
       margin: 0 auto;
       padding: 40px;
@@ -76,6 +80,13 @@
     .post-content {
       font-size: 18px;
       margin-bottom: 0;
+    }
+
+    footer {
+      flex-shrink: 0;
+      background-color: #f8f9fa;
+      padding: 20px;
+      text-align: center;
     }
   </style>
 </head>
