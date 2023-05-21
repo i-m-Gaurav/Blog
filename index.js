@@ -7,9 +7,6 @@ const homeStartingContent = "This is for Home page";
 const aboutContent = "This is for about page";
 const contactContent = "This is for contact page";
 
-const PASSWORD = process.env.PASSWORD;
-
-const url = `mongodb+srv://admin-gaurav:${PASSWORD}@cluster0.hozaezv.mongodb.net/dailyBlog"`;
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -18,7 +15,7 @@ app.set('view engine', 'ejs');
 app.use(express.static("public"));
 
 // Connect to MongoDB
-mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect("mongodb+srv://admin-gaurav:gaurav123@cluster0.hozaezv.mongodb.net/dailyBlog", { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log("Connected to MongoDB");
   })
