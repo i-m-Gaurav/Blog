@@ -16,7 +16,7 @@ app.set('view engine', 'ejs');
 app.use(express.static("public"));
 
 // Connect to MongoDB
-mongoose.connect("mongodb+srv://admin-gaurav:@cluster0${PASSWORD}.hozaezv.mongodb.net/dailyBlog", { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect("mongodb+srv://admin-gaurav:${PASSWORD}@cluster0.hozaezv.mongodb.net/dailyBlog", { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log("Connected to MongoDB");
   })
