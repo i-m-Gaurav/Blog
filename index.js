@@ -95,6 +95,8 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 
+app.use(express.static("public"));
+
 // Connect to MongoDB
 mongoose.connect("mongodb+srv://admin-gaurav:gaurav123@cluster0.hozaezv.mongodb.net/dailyBlog", { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {

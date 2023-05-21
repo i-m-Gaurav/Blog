@@ -1,95 +1,117 @@
-<!-- example.ejs -->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Daily Blog</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" href="css/style.css">
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Blog</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
   <style>
-   /* .content {
-  min-height: calc(100vh - 70px);
-  
-  padding: 40px;
-} */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
 
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px;
+    }
 
+    h1 {
+      font-size: 32px;
+      font-weight: bold;
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
 
+    p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
 
+    .writeBtn {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: start;
+      margin-bottom: 40px;
+    }
 
+    .newBtn {
+      height: 40px;
+      width: 150px;
+      border: none;
+      outline: none;
+      color: white;
+      border-radius: 8px;
+      background-color: rgb(45, 104, 172);
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
 
-      
-    
+    .newBtn:hover {
+      background-color: rgb(30, 80, 132);
+    }
 
+    .post-container {
+      background-color: #b6b6b6;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
 
-/* Media queries for responsiveness */
-.writeBtn{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: start;
-}
-.newBtn{
-  height: 40px;
-  width: 150px;
-  border: none;
-  outline: none;
-  color: white;
-  border-radius: 8px;
-  background-color: rgb(45, 104, 172);
-}
-label{
-  font-weight: 500;
-  font-size:20px;
-}
+    .post-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
 
-
+    .post-content {
+      font-size: 18px;
+      margin-bottom: 0;
+    }
   </style>
-  <body>
-    <header><%- include('partials/header.ejs') -%></header>
-    
+</head>
+<body>
+  <header>
+    <%- include('partials/header.ejs') -%>
+  </header>
 
-    <div class="content">
-      <div class="container" id="cont">
-        <div class="row">
-          <div class="col-md-6">
-            <h1>Log your daily activities here...</h1>
-            <p>This is a very personalized website to log your daily updates, and you can share it with your friends.</p>
-            <div class="writeBtn">
-              <form action="/compose">
-                <button class="newBtn" type="submit" name="postBtn">Write New Post</button>
-              </form>
-            </div>
-            <hr>
-            
-          </div>
+  <div class="container" id="cont">
+    <div class="row">
+      <div class="col-md-6">
+        <h1>Log your daily activities here...</h1>
+        <p>This is a very personalized website to log your daily updates, and you can share it with your friends.</p>
+        <div class="writeBtn">
+          <form action="/compose">
+            <button class="newBtn" type="submit" name="postBtn">Write New Post</button>
+          </form>
         </div>
-
-        <div class="row">
-          <div class="col-md-6">
-            <% posts.forEach(function(post) { %>
-            <div class="post-container">
-              <h1 class="post-title"><%= post.title %></h1>
-              <p class="post-content">
-                <% if (post.contents.length > 100) { %>
-                <%= post.contents.substring(0, 100) + '...' %>
-                <a href="/post/<%= post.title %>">Read More</a>
-                <% } else { %>
-                <%= post.contents %>
-                <% } %>
-              </p>
-            </div>
-            <% }); %>
-          </div>
-        </div>
+        <hr>
       </div>
     </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <% posts.forEach(function(post) { %>
+        <div class="post-container">
+          <h1 class="post-title"><%= post.title %></h1>
+          <p class="post-content"><%= post.contents %></p>
+        </div>
+        <% }); %>
+      </div>
+    </div>
+  </div>
+
+  
+
 
     <footer><%- include('partials/footer.ejs') -%></footer>
   </body>
