@@ -85,6 +85,10 @@ app.get("/post/:newPost", function (req, res) {
     });
 });
 
+// reload every 10 second
+
+
+
 app.listen(8081, function () {
   console.log("Server is running on port 8081");
 });
