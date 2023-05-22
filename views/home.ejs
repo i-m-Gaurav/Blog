@@ -5,6 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Daily Blog</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
   <style>
@@ -107,7 +109,19 @@
       font-size: 20px;
       transition: background-color 0.3s ease;
     }
-
+.reply{
+  margin-left: 5px;
+  cursor: pointer;
+}
+.like{
+  cursor: pointer;
+}
+/* .reply_container{
+  display: none;
+} */
+.show{
+  display: none;
+}
     
   </style>
 </head>
@@ -130,17 +144,35 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-6">
-        <% posts.forEach(function(post) { %>
-        <div class="post-container">
-          <h1 class="post-title"><%= post.title %></h1>
-          <p class="post-content"><%= post.contents %></p>
+   
+
+  <div class="row">
+    <div class="col-md-6">
+      <% for (let i = posts.length - 1; i >= 0; i--) { %>
+      <div class="post-container">
+        <h1 class="post-title"><%= posts[i].title %></h1>
+        <p class="post-content"><%= posts[i].contents %></p>
+        <div class="post-actions">
+          <hr>
+          <i class="far fa-heart like" id="like"></i> <!-- Font Awesome icon for "like" -->
+          <i class="fa fa-reply reply" id="reply" aria-hidden="true"></i> <!-- Font Awesome icon for "reply" -->
         </div>
-        <% }); %>
+        <form action="/compose" method="post">
+
+        <div class="reply-container reply_container show">
+          <div class="input-group mb-3">
+            <textarea class="form-control" name="content" rows="3" placeholder="Type your reply..."></textarea>
+          </div>
+            <button type="submit" class="btn btn-primary reply-send-btn">Send</button>
+        </div>
+      </form>
+
       </div>
+      <% } %>
     </div>
   </div>
+  
+  
 
   
  <!-- Add the scroll down button -->
@@ -157,6 +189,22 @@
       e.preventDefault();
       targetElement.scrollIntoView({ behavior: 'smooth' });
     });
+
+    const reply_container = document.querySelector(".reply_container");
+
+    document.querySelector('.reply').addEventListener('click',function(){
+
+      reply_container.classList.toggle('show');
+      
+    })
+
+   
+
+   
+
+
+
+
   </script>
   </body>
  
