@@ -2,64 +2,35 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sticky Footer</title>
-  <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-    }
-
-    .content {
-      padding: 20px;
-      min-height: calc(100% - 50px); /* Subtract footer height */
-      box-sizing: border-box;
-    }
-
-    .footer {
-      background-color: #f8f9fa;
-      height: 50px;
-      line-height: 50px;
-      text-align: center;
-    }
-  </style>
+  <title>Document</title>
 </head>
 <body>
-  <div class="content">
-    <h1>Your Website Content</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ultrices pharetra nunc, et aliquet lacus convallis vel.</p>
-    <p>Sed malesuada fermentum lectus, vel auctor justo condimentum nec. Sed scelerisque tortor sit amet placerat lacinia.</p>
-    <!-- Add more content here if needed -->
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ultrices pharetra nunc, et aliquet lacus convallis vel.</p>
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ultrices pharetra nunc, et aliquet lacus convallis vel.</p>
+  <div class="wow" id="wow">Hello</div>
+  <div class="wow">Hello</div>
+  <div class="wow">Hello</div>
+  <div class="wow">Hello</div>
+  <div class="wow">Hello</div>
+  <div class="wow">Hello</div>
+  <div class="wow">Hello</div>
+  <button class="wow">hello</button>
+  
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ultrices pharetra nunc, et aliquet lacus convallis vel.</p>
-
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ultrices pharetra nunc, et aliquet lacus convallis vel.</p>
-
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ultrices pharetra nunc, et aliquet lacus convallis vel.</p>
-
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ultrices pharetra nunc, et aliquet lacus convallis vel.</p>
-
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ultrices pharetra nunc, et aliquet lacus convallis vel.</p>
-
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ultrices pharetra nunc, et aliquet lacus convallis vel.</p>
-
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ultrices pharetra nunc, et aliquet lacus convallis vel.</p>
-
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ultrices pharetra nunc, et aliquet lacus convallis vel.</p>
-
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ultrices pharetra nunc, et aliquet lacus convallis vel.</p>
-
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ultrices pharetra nunc, et aliquet lacus convallis vel.</p>
-
+  <script>
+    document.getElementById("wow").addEventListener("click", function(){
+      alert("Hello from the div element!");
+    });
     
-  </div>
-
-  <footer class="footer">
-    Sticky Footer
-  </footer>
+    const wowButtons = document.querySelectorAll(".wow");
+    
+    wowButtons.forEach(button => {
+      button.addEventListener("click", function(){
+        alert("Hello from the button!");
+      });
+    });
+  </script>
 </body>
+
 </html>

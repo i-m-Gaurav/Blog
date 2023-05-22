@@ -29,8 +29,14 @@ const postSchema = new mongoose.Schema({
   contents: String
 });
 
+const replySchema = new mongoose.Schema({
+  contents: String
+});
+
 // Create a Post model based on the schema
 const Post = mongoose.model('Post', postSchema);
+
+const Reply = mongoose.model("Reply",replySchema);
 
 app.use(express.static("public"));
 
@@ -71,6 +77,23 @@ app.post("/compose", function (req, res) {
     });
 });
 
+app.post("/reply", function(req,res){
+  const post = new Post({
+    title: req.body.title,
+    contents: req.body.content
+  });
+  console.log(contents)
+
+
+  reply.save()
+  .then(()=>{
+    res.redirect("/")
+  })
+  .catch((err)=>{
+    console.log(err);
+  })
+})
+
 app.get("/post/:newPost", function (req, res) {
   const requestedTitle = _.lowerCase(req.params.newPost);
 
@@ -84,10 +107,6 @@ app.get("/post/:newPost", function (req, res) {
       console.log(err);
     });
 });
-
-// reload every 10 second
-
-
 
 app.listen(8081, function () {
   console.log("Server is running on port 8081");

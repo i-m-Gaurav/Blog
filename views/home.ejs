@@ -65,11 +65,11 @@
     }
 
     .post-container {
-      background-color: #b6b6b6;
+      background-color: #eeeeee;
       border-radius: 8px;
       padding: 20px;
       margin-bottom: 20px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
     }
 
     .post-title {
@@ -144,11 +144,10 @@
       </div>
     </div>
 
-   
-
   <div class="row">
     <div class="col-md-6">
       <% for (let i = posts.length - 1; i >= 0; i--) { %>
+        
       <div class="post-container">
         <h1 class="post-title"><%= posts[i].title %></h1>
         <p class="post-content"><%= posts[i].contents %></p>
@@ -156,7 +155,7 @@
           <hr>
           <i class="far fa-heart like" id="like"></i> <!-- Font Awesome icon for "like" -->
 
-          <i class="fa fa-reply reply" id="reply" aria-hidden="true"></i> 
+          <i class="fa fa-reply reply" aria-hidden="true"></i> 
         </div>
         <form action="/compose" method="post">
 
@@ -169,12 +168,10 @@
       </form>
 
       </div>
+
       <% } %>
     </div>
   </div>
-  
-  
-
   
  <!-- Add the scroll down button -->
   <a href="#cont" class="scroll-down-btn">
@@ -193,21 +190,29 @@
 
     const reply_container = document.querySelector(".reply_container");
 
-    document.querySelector('.reply').addEventListener('click',function(){
+    // const replyIcon = document.querySelectorAll('.fa-reply');
 
-      reply_container.classList.toggle('show');
+    // replyIcon.forEach(icon =>{
+    //   icon.addEventListener("click",function(){
+    //     reply_container.classList.toggle('show');
+    //   })
+    // })
 
-    })
+    const replyIcons = document.querySelectorAll('.fa-reply');
+    replyIcons.forEach(icon => {
+      icon.addEventListener('click', function () {
+        // Find the closest post container
+        const postContainer = icon.closest('.post-container');
 
-   
+        // Find the reply container within the post container
+        const replyContainer = postContainer.querySelector('.reply-container');
 
-   
-
-
-
+        // Toggle the 'show' class for the reply container
+        replyContainer.classList.toggle('show');
+      });
+    });
 
   </script>
   </body>
  
-
 </html>
