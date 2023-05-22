@@ -119,7 +119,7 @@
 /* .reply_container{
   display: none;
 } */
-.show{
+.test{
   display: none;
 }
 .btn{
@@ -178,7 +178,7 @@
         </div>
         <form action="/compose" method="post">
 
-        <div class="reply-container reply_container show">
+        <div class="reply-container reply_container test">
           <div class="input-group mb-3">
             <textarea class="form-control" name="content" rows="3" placeholder="Type your reply..."></textarea>
           </div>
@@ -218,7 +218,8 @@
     // })
 
     const replyIcons = document.querySelectorAll('.fa-reply');
-    replyIcons.forEach(icon => {
+    replyIcons.forEach(icon => { 
+      
       icon.addEventListener('click', function () {
         // Find the closest post container
         const postContainer = icon.closest('.post-container');
@@ -227,7 +228,7 @@
         const replyContainer = postContainer.querySelector('.reply-container');
 
         // Toggle the 'show' class for the reply container
-        replyContainer.classList.toggle('show');
+        replyContainer.classList.toggle('test');
       });
     });
   </script>
