@@ -7,8 +7,7 @@ const _ = require('lodash');
 const homeStartingContent = "This is for Home page";
 const aboutContent = "This is for about page";
 const contactContent = "This is for contact page";
-const password = process.env.PASSWORD;
-const url = process.env.URL;
+const DB_URL = process.env.URL;
 
 
 
@@ -19,7 +18,7 @@ app.set('view engine', 'ejs');
 app.use(express.static("public"));
 
 // Connect to MongoDB
-mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log("Connected to MongoDB");
   })
