@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const mongoose = require('mongoose');
 const bodyParser = require("body-parser");
@@ -6,6 +7,9 @@ const _ = require('lodash');
 const homeStartingContent = "This is for Home page";
 const aboutContent = "This is for about page";
 const contactContent = "This is for contact page";
+const password = process.env.PASSWORD;
+const URL = `mongodb+srv://admin-gaurav:${password}@cluster0.hozaezv.mongodb.net/dailyBlog`
+
 
 
 const app = express();
@@ -15,7 +19,7 @@ app.set('view engine', 'ejs');
 app.use(express.static("public"));
 
 // Connect to MongoDB
-mongoose.connect("mongodb+srv://admin-gaurav:gaurav123@cluster0.hozaezv.mongodb.net/dailyBlog", { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log("Connected to MongoDB");
   })
